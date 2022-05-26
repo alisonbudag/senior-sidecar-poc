@@ -5,13 +5,14 @@ Esse projeto tem o objetivo de levantar quais foram as facilidades/dificuldades 
 **Versão da linguagem**: 1.18  
 **IDE utilizada**: VSCode com a extensão GO. 
 
-```Brinquei um pouco na versão EAP do Goland disponibilizado pela JetBrains com 30 dias de teste, de fato é mais prático, mas com a extensão do GO no VSCode já quebra o galho.```
+```Brinquei um pouco na versão EAP do Goland disponibilizada pela JetBrains com 30 dias de teste, de fato é mais prático, mas com a extensão do GO no VSCode já quebra o galho.```
 
 ## Estrutura
 APIs disponibilizadas:  
 * **/getUsers**: Traz uma lista de usuários.
-* **/deserialize**: Chama a API /getUsers e deserializa o resultado. Printa na tela o resultado.
+* **/deserialize**: Chama a API /getUsers e retorna o resultado desserializado como text/plain formatado pelo GO.
 
+## Bibliotecas
 Não foram utilizadas bibliotecas externas.
 
 ## Facilidades

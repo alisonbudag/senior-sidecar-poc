@@ -18,7 +18,7 @@ func httpClient() *http.Client {
 func HandleRequests() {
 	http.HandleFunc("/getUsers", returnGetUsers)
 	http.HandleFunc("/des", returnDeserialized)
-	log.Fatal(http.ListenAndServe(":10000", nil))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 func returnGetUsers(w http.ResponseWriter, r *http.Request) {
@@ -51,13 +51,13 @@ func returnGetUsers(w http.ResponseWriter, r *http.Request) {
 func returnDeserialized(w http.ResponseWriter, r *http.Request) {
 	c := httpClient()
 	var users []model.User
-	err := requestGetUsers(c, "http://localhost:10000/getUsers", &users)
+	err := requestGetUsers(c, "http://localhost:8080/getUsers", &users)
 	if err != nil {
 		panic(err)
 	}
 
-	user := (users)[0]
-	fmt.Println("Usuário deserializado: ", user)
+	w.Header().Add("Content-Type", "text/plain")
+	w.Write([]byte(fmt.Sprintf("%+v", users)))
 }
 
 func requestGetUsers(client *http.Client, url string, target interface{}) error {
